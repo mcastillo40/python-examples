@@ -19,7 +19,7 @@ def add_book():
 
 def list_books():
     for book in database.list_books():
-        read = 'YES' if book.read == '1' else 'NO'
+        read = 'YES' if book.read else 'NO'
         print(f"{book.name} by {book.author} — Read: {read}")
 
 
@@ -46,6 +46,7 @@ def menu():
     user_input = input(USER_CHOICE)
 
     while user_input != 'q':
+        print("\n")
         if user_input in user_options:
             selected_action = user_options[user_input]
             selected_action()
